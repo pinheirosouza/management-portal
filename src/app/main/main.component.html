@@ -1,0 +1,55 @@
+<mat-toolbar style="background-color: #59440D;">
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" style="height: 100%; cursor: pointer;"
+    (click)="openMenu()">
+    <img src="../../assets/p-symbol-gerenciamento.svg" style="height: 60%;">
+    <span style="color: white">Menu</span>
+  </div>
+  <span class="example-spacer"></span>
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" style="color: white">
+    <form class="searchbar-form" *ngIf="innerWidth > 590">
+      <input #search type="text" placeholder="&#xF002;" style="font-family:Arial, FontAwesome" name="search"
+        [(ngModel)]="searchText">
+    </form>
+    <span>Administrador</span>
+    <button mat-icon-button (click)='logout()'>
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<div style="height: 60px;" fxLayout="row" fxLayoutAlign="start center">
+  <span style="padding-left: 45px;padding-top: 15px; font-size: 22px">Parceiros de
+    Integração</span>
+</div>
+<br>
+<div fxLayout="row" fxLayoutAlign="center center" *ngIf="innerWidth <= 590">
+  <form class="searchbar-form" style="width: 90%">
+    <input #search type="text" placeholder="&#xF002;" style="font-family:Arial, FontAwesome" name="search"
+      [(ngModel)]="searchText">
+  </form>
+
+</div>
+<br>
+<mat-table [dataSource]="partnerService.partners | filter:searchText">
+
+  <ng-container matColumnDef="technical_manager">
+    <mat-header-cell *matHeaderCellDef><b>Responsável Técnico</b></mat-header-cell>
+    <mat-cell *matCellDef="let element" (click)="manageConfigs(element)"> {{element.technical_manager}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef><b>Parceiro</b></mat-header-cell>
+    <mat-cell *matCellDef="let element" (click)="manageConfigs(element)"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="config.permissions">
+    <mat-header-cell *matHeaderCellDef><b>Nível de Permissão</b></mat-header-cell>
+    <mat-cell *matCellDef="let element" (click)="manageConfigs(element)">
+      <app-permission-level [permissionLevel]="element.config.permissions"></app-permission-level>
+      <!-- <mat-icon [ngStyle]="{'color':getColor(element.config.permissions)}">lens</mat-icon> -->
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

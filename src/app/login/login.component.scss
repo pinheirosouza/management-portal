@@ -1,0 +1,60 @@
+.login-toolbar {
+  background-color: #14243b;
+  height: 80px;
+  position: relative;
+
+  .login-toolbar-title {
+    color: white;
+    font-size: 25px;
+  }
+}
+
+.form {
+  width: 100%;
+  padding: 0 20px;
+
+  .form-field {
+    max-width: 500px;
+    width: 100%;
+    font-size: 20px;
+  }
+
+  ::ng-deep .mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #59440D !important;
+  }
+
+  ::ng-deep .mat-form-field.mat-focused {
+    .mat-form-field-label {
+      color: #DAA520;
+    }
+
+    .mat-form-field-ripple {
+      background-color: #DAA520;
+    }
+
+    .mat-form-field-required-marker {
+      color: #DAA520;
+    }
+  }
+}
+
+.sign-in-button {
+  background-color: #DAA520;
+  color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  line-height: 48px;
+  height: auto;
+  width: 120px;
+}
+
+.login-help-button {
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: #59440D;
+}

@@ -1,0 +1,39 @@
+<div mat-dialog-title class="div-alert-title">
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <img class="img" src="../../../../assets/p-symbol-gerenciamento.svg">
+    <div class="divider"></div>
+    <b class="alert-title">Permissões<span></span></b>
+  </div>
+</div>
+<div mat-dialog-content class="div-alert-content">
+  <mat-list>
+    <mat-list-item>
+      <mat-slide-toggle style="color: white;" [(ngModel)]="configs.register_page"
+        (ngModelChange)="changeConfig($event)">
+        Registrar Páginas</mat-slide-toggle>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-slide-toggle style="color: white;" [(ngModel)]="configs.register_plan"
+        (ngModelChange)="changeConfig($event)">
+        Registrar Planos</mat-slide-toggle>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-slide-toggle style="color: white;" [(ngModel)]="configs.set_configuration_data"
+        (ngModelChange)="changeConfig($event)">Configurar Módulos</mat-slide-toggle>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-slide-toggle style="color: white;" [(ngModel)]="configs.manage_modules"
+        (ngModelChange)="changeConfig($event)">
+        Configurar Estabelecimentos
+      </mat-slide-toggle>
+    </mat-list-item>
+  </mat-list>
+  <br style="height: 10px; display: block; content:''">
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <button mat-flat-button flex="33" class="button" (click)="close()">Fechar</button>
+    <!-- <button mat-flat-button flex="33" class="button">Salvar</button> -->
+  </div>
+
+  <br>
+</div>
+<div mat-dialog-actions></div>

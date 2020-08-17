@@ -1,0 +1,43 @@
+<div *ngIf="innerWidth>950" fxLayout="column" fxLayoutAlign="center center" fxFill
+  style="padding: 30px 30px;background-color:#59440D">
+  <div fxLayout="row" fxLayoutAlign="center center" fxFill>
+    <div fxLayout="column" fxLayoutAlign="center center" fxFlex="55%" fxFill style="overflow: hidden">
+      <img style="height: 100%;" src="../../assets/12798.jpg">
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" fxFlex="45%" fxFill
+      style="background-color:white; padding:20px">
+      <img style="width: 50%;" src="../../assets/logo-gerenciamento.svg">
+      <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5px" class="form">
+        <mat-form-field class="form-field">
+          <mat-label>Login</mat-label>
+          <input matInput [(ngModel)]="credentials.email">
+
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" [(ngModel)]="credentials.password">
+        </mat-form-field>
+      </div>
+      <button mat-flat-button flex="33" class="sign-in-button" (click)="login()">Entrar</button>
+      <button mat-button class="login-help-button">PROBLEMAS PARA FAZER LOGIN?</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="innerWidth<=950" fxLayout="column" fxLayoutAlign="center center" fxFill>
+  <!-- <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" style="background-color:white;"> -->
+  <img style="width: 50%;" src="../../assets/logo-gerenciamento.svg">
+  <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5px" class="form">
+    <mat-form-field class="form-field">
+      <mat-label>Login</mat-label>
+      <input matInput [(ngModel)]="credentials.email">
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>Senha</mat-label>
+      <input matInput type="password" [(ngModel)]="credentials.password">
+    </mat-form-field>
+  </div>
+  <br>
+  <button mat-flat-button flex="33" class="sign-in-button" (click)="login()">Entrar</button>
+  <button mat-button class="login-help-button">PROBLEMAS PARA FAZER LOGIN?</button>
+  <!-- </div> -->
+</div>
